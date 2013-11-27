@@ -16,6 +16,8 @@
       <th><%= model_class.human_attribute_name(:admin) %></th>
       <th><%= model_class.human_attribute_name(:mark) %></th>
       <th><%= model_class.human_attribute_name(:ZipCode) %></th>
+      <th><%= model_class.human_attribute_name(:VKLiked) %></th>
+      <th><%= model_class.human_attribute_name(:FBLiked) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%= t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -40,6 +42,8 @@
         </td>
         <td><%= user.mark %></td>
         <td><%= user.zipcode %></td>
+        <td><%= user.VKLiked %></td>
+        <td><%= user.FBLiked %></td>
         <td><%= user.created_at %></td>
         <td>
           <% unless current_user.email == user.email  %>
