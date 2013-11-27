@@ -1,6 +1,7 @@
 set :rvm_bin_path, "/usr/local/rvm/bin"
 require 'rvm/capistrano' # Для работы rvm
 require 'bundler/capistrano' # Для работы bundler. При изменении гемов bundler автоматически обновит все гемы на сервере, чтобы они в точности соответствовали гемам разработчика.
+load 'deploy/assets'
 
 set :application, "webmoroz"
 set :rails_env, "production"
@@ -33,10 +34,10 @@ end
 # В случае с Rails 3 приложениями стоит заменять bundle exec unicorn_rails на bundle exec unicorn
 namespace :deploy do
   task :restart do
-    run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{deploy_to}/current && RAILS_ENV=#{rails_env} rake assets:precompile && bundle exec unicorn_rails -c #{unicorn_conf} -E #{rails_env} -D; fi"
+    run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{deploy_to}/current && bundle exec unicorn_rails -c #{unicorn_conf} -E #{rails_env} -D; fi"
   end
   task :start do
-    run "RAILS_ENV=#{rails_env} rake assets:precompile && bundle exec unicorn_rails -c #{unicorn_conf} -E #{rails_env} -D"
+    run "bundle exec unicorn_rails -c #{unicorn_conf} -E #{rails_env} -D"
   end
   task :stop do
     run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
