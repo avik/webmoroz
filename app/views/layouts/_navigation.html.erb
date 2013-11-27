@@ -11,6 +11,26 @@
         </li>
       <% end %>
       <li>
+        <%= link_to('Акция', '#', :id => 'popover_bonuses', :date-content='
+		<table class="table table-striped table-bordered table-hover">
+          <tbody>
+            <tr>
+              <td>Новогодний подарок</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Рассказать друзьям VK</td>
+              <td>Column content</td>
+            </tr>
+			<tr>
+              <td>Рассказать друзьям FB</td>
+              <td>Column content</td>
+            </tr>
+          </tbody>
+        </table>
+		') %>
+      </li>
+      <li>
         <%= link_to('С чего начать?', '#', :id => 'start-tour') %>
       </li>
       <li>
