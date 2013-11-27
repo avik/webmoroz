@@ -2,6 +2,7 @@
   float: left;
   margin: 7px 7px 7px 0;
 }
+
 .navbar-brand {
   padding: 0 !important;
 }
@@ -9,6 +10,7 @@
 .botton_container {
   position: relative !important;
 }
+
 .botton_div {
   position: absolute !important;
   right: 0;
@@ -35,17 +37,18 @@ h2 {
   margin-bottom: 6px !important;
 }
 
-html,body {
-  min-height:100%;
+html {
+  min-height: 100%;
 }
 
 body {
-  background-image: url(background.jpg);
+  min-height: 100%;
+  background-image: url(image_path('background.jpg'));
   background-color: #000000;
   background-repeat: no-repeat;
-  background-position:center bottom;
+  background-position: center bottom;
   background-size: 100%;
-  background-attachment:fixed;
+  background-attachment: fixed;
 }
 
 .txt-white {
@@ -55,6 +58,7 @@ body {
 .margin-bottom-sm {
   margin-bottom: 5px;
 }
+
 .margin-bottom {
   margin-bottom: 20px;
 }
@@ -70,12 +74,14 @@ body {
 .tooltip {
   font-size: 14px;
 }
+
 .tooltip-inner {
-  background-color: rgba(50,50,50,0.9);
-  min-width:220px;
+  background-color: rgba(50, 50, 50, 0.9);
+  min-width: 220px;
 }
+
 .tooltip.top .tooltip-arrow {
-  border-top-color: rgba(50,50,50,0.9);
+  border-top-color: rgba(50, 50, 50, 0.9);
 }
 
 .popover {
@@ -96,6 +102,6 @@ small {
 
 .fb-like {
   top: 15px;
-height: 20px;
-    overflow: hidden;
+  height: 20px;
+  overflow: hidden;
 }
