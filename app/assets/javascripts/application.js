@@ -63,9 +63,6 @@ $(function() {
     $('.popover_hover').popover(
       { trigger: "hover" }
     );
-	$('.popover_bonuses').popover({
-      html: true;
-	});
     $('.tooltip-hover').tooltip(
     );
     $('#info_tab a').click(function (e) {
