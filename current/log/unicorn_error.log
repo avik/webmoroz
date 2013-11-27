@@ -1,0 +1,5 @@
+I, [2013-11-27T07:14:58.450595 #5712]  INFO -- : inherited addr=/srv/webmoroz/shared/unicorn.sock fd=9
+I, [2013-11-27T07:14:58.450885 #5712]  INFO -- : Refreshing Gem list
+I, [2013-11-27T07:15:07.187431 #5720]  INFO -- : worker=0 ready
+I, [2013-11-27T07:15:07.206810 #5723]  INFO -- : worker=1 ready
+I, [2013-11-27T07:15:07.207246 #5712]  INFO -- : master process ready

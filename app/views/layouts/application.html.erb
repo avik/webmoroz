@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "WebMoroz: веб-сервис добра" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Ты все еще не с нами? Присоединяйся и дари радость людям! Стань Дедом Морозом прямо сейчас!" %>">
+<!-- Open Graph Meta Data by WP-Open-Graph plugin-->
+<meta property="og:site_name" content="WebMoroz: веб-сервис добра" />
+<meta property="og:locale" content="ru_ru" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="WebMoroz: веб-сервис добра" />
+<meta property="og:url" content="http://WebMoroz.com/" />
+<meta property="og:description" content="Ты все еще не с нами? Присоединяйся и дари радость людям! Стань Дедом Морозом прямо сейчас!" />
+<meta property="og:image" content="http://webmoroz.com/assets/ded_moroz.jpg" />
+<!-- /Open Graph Meta Data -->
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "http://vk.com/js/api/openapi.js?105" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="navbar navbar-default">
+      <%= render 'layouts/navigation' %>
+    </div>
+    <main role="main" id="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+            <div class="span12">
+              <%= render 'layouts/messages' %>
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

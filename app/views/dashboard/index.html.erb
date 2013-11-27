@@ -1,0 +1,93 @@
+<style type="text/css">
+  #start-tour {
+    display: block;
+  }
+</style>
+<div class='row'>
+  <div class='col-lg-1'></div>
+  <div class='col-lg-10' id='tour_welcome'>
+    <h2 class='txt-white'>WebMoroz: веб-сервис добра</h2>
+    <h5 class='txt-white'>Добро пожаловать, <%= current_user.username %></h5>
+  </div>
+  <div class='col-lg-1'></div>
+</div>
+<div class='row'>
+  <div class='col-lg-1'></div>
+  <div class='col-lg-10'>
+    <div class='col-lg-5'>
+      <div class='panel panel-primary' id='addresses_for_rec'>
+        <div class='panel-heading tooltip-hover' title='Люди, которые отправили вам подарки'>
+          <h3 class='panel-title'>Подарки отправленные Вам:</h3>
+        </div>
+        <div class='panel-body'>
+          <div class='list-group'>
+            <% @recipients.each do | present | %>
+              <div class='list-group-item'>
+                <h4 class='list-group-item-heading'><%= present.sender.username %></h4>
+                <div class='list-group-item-text'>
+                    <small>Отправлен: <%= l(present.recipient.created_at, :format => :notime) %></small>
+                    <div style='text-align: right'>
+                      <div class='tooltip-hover' style='display: inline-block; max-width: 100px;' title='Отблагодарите вашего ВебМороза, указав код, написаный на вашем подарке'>
+                        <%= form_tag(close_present_path(present), method: "get") do %>
+                          <div class='input-group'>
+                            <%= text_field_tag :code, '', :class => 'form-control input-sm', :placeholder => 'Код' %>
+                            <span class='input-group-btn'>
+                              <%= submit_tag "+", :class => 'btn btn-primary btn-sm' %>
+                            </span>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='col-lg-2' style='text-align: center'>
+      <span class='margin-bottom' style='display: inline-block'>
+        <%= link_to '', new_present_path,:remote => false, :class => 'btn btn-lg btn-success fa fa-envelope-o fa-4x tooltip-hover', :id => 'gift-btn', :title => 'Нажав, Вы получите адрес человека, которому должны отправить подарок'%>
+      </span>
+      <div class="panel panel-default">
+        <div class="panel-body tooltip-hover" id='tour_mark'  title='Количество подарков, которые вы еще можете получить.' >
+          <span class='font-lg' id='num_mark'><%= current_user.mark %></span>
+          <span class='font-lg'> x </span>
+          <span class='fa fa-gift fa-3x'></span>
+        </div>
+      </div>
+    </div>
+    <div class='col-lg-5'>
+      <div class='panel panel-primary' id='addresses_for_send'>
+        <div class='panel-heading tooltip-hover' title='Люди, которые ждут от вас подарки'>
+          <h3 class='panel-title'>Адресаты для Ваших подарков:</h3>
+        </div>
+        <div class='panel-body'>
+          <div class='list-group'>
+            <% @senders.each do | present | %>
+              <div class='list-group-item'>
+                <h4 class='list-group-item-heading'>
+                  <%= present.recipient.username %>
+                </h4>
+                <div class='list-group-item-text'>
+                  <small>
+                    <span class='text-info'>Возраст:</span> <%= present.recipient.age %><br/>
+                    <span class='text-info'>Адрес:</span> <%= present.recipient.zipcode %>, <%= present.recipient.address %>
+                  </small>
+                  <div style='text-align: right'>
+                    <span class='tooltip-hover' title="Укажите этот код на подарке">
+                      <span class="label label-primary">Код:</span><span class="label label-success"><%= present.code%></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='col-lg-1'></div>
+</div>
+<%= render 'static/about'%>
+<%= render 'layouts/vk_group'%>

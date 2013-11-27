@@ -1,0 +1,85 @@
+<% model_class = User.new.class %>
+<div class='row well'>
+  <%= form_tag(admin_create_mass_users_path, method: "get") do %>
+    <%= text_area_tag(:userslist, "Hi, nice site", size: "24x6") %><br/>
+    <%= submit_tag("CreateMassUser") %>
+  <% end %>
+</div>
+
+<div class='row well'>
+<h2>Users</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:username) %></th>
+      <th><%= model_class.human_attribute_name(:activ) %></th>
+      <th><%= model_class.human_attribute_name(:admin) %></th>
+      <th><%= model_class.human_attribute_name(:mark) %></th>
+      <th><%= model_class.human_attribute_name(:ZipCode) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.username, edit_user_path(user) %></td>
+        <td>
+          <% if user.activ %>
+            <%= link_to 'True', toggle_active_user_path(user), :remote => false, :id => "active_link_#{user.id}", :class => 'btn btn-mini btn-success' %>
+          <% else %>
+            <%= link_to 'False', toggle_active_user_path(user), :remote => false, :id => "active_link_#{user.id}", :class => 'btn btn-mini btn-danger'%>
+          <% end %>
+        </td>
+        <td>
+          <% if user.admin %>
+            <%= link_to 'True', toggle_admin_user_path(user), :remote => false, :id => "admin_link_#{user.id}", :class => 'btn btn-mini btn-success' %>
+          <% else %>
+            <%= link_to 'False', toggle_admin_user_path(user), :remote => false, :id => "admin_link_#{user.id}", :class => 'btn btn-mini btn-danger'%>
+          <% end %>
+        </td>
+        <td><%= user.mark %></td>
+        <td><%= user.zipcode %></td>
+        <td><%= user.created_at %></td>
+        <td>
+          <% unless current_user.email == user.email  %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")), user_path(user), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))}, :class => 'btn btn-mini btn-danger' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<div class='row well'>
+<h2>Presents</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>code</th>
+      <th>sender</th>
+      <th>recipient</th>
+      <th>created_at</th>
+      <th>status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @presents.each do |present| %>
+      <tr>
+        <td><%= present.id %></td>
+        <td><%= present.code %></td>
+        <td><%= link_to present.sender.username, edit_user_path(present.sender) %></td>
+        <td><%= link_to present.recipient.username, edit_user_path(present.recipient) %></td>
+        <td><%= present.created_at %></td>
+        <td><%= present.status %></td>
+        <td>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")), present, :method => :delete, :remote => true, :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

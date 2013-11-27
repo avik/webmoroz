@@ -1,0 +1,104 @@
+<div class='row'>
+  <div class='col-lg-3'></div>
+  <div class='col-lg-6'>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Настройка пользователя</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+          <div class='row'>
+            <div class='col-lg-12'>
+              <%= devise_error_messages! %>
+            </div>
+          </div>
+
+          <div class='row'>
+            <div class='col-lg-12'>
+              <div class='row'>
+                <div class='col-lg-4'>
+                  <%= f.label :username %>
+                  <p><small><i>на почте без них подарок вполне могут и не отдать</i></small></p>
+                </div>
+                <div class='col-lg-8'>
+                  <%= f.text_field :username, :validate => true, :class => 'form-control' %>
+                </div>
+              </div><br/>
+              <div class='row'>
+                <div class='col-lg-4'>
+                  <div><%= f.label :zipcode %></div>
+                  <p><small><i>Индекс вашего почтового отделения</i></small></p>
+                </div>
+                <div class='col-lg-8'>
+                  <%= f.text_field :zipcode, :validate => true, :class => 'form-control', :placeholder => 'Индекс' %>
+                </div>
+              </div><br/>
+              <div class='row'>
+                <div class='col-lg-4'>
+                  <%= f.label :address %>
+                  <p><small><i>не e-mail адрес, а настоящий адрес - улица-дом, все дела</i></small></p>
+                </div>
+                <div class='col-lg-8'>
+                  <%= f.text_field :address, :validate => true, :class => 'form-control', :placeholder => 'Город, улица, дом, корпус, квартира, все дела..' %>
+                </div>
+              </div><br/>
+              <div class='row'>
+                <div class='col-lg-4'>
+                  <%= f.label :bdate %>
+                  <p><small><i>иногда так случается, что вашему ВебМорозу необходимо знать ваш возраст ;)</i></small></p>
+                </div>
+                <div class='col-lg-8'>
+                  <%= f.text_field :bdate, 'data-behaviour' => 'datepicker', :class => 'form-control' %>
+                </div>
+              </div><br/>
+
+              <% if @user.provider == "vkontakte" or @user.provider == "facebook"  %><div class="hidden">
+              <% else %><div>
+              <% end %>
+                <div class='row'>
+                  <div class='col-lg-4'>
+                    <%= f.label :email %>
+                  </div>
+                  <div class='col-lg-8'>
+                    <%= f.email_field :email, :class => 'form-control' %>
+                  </div>
+                </div><br/>
+                <div class='row'>
+                  <div class='col-lg-4'>
+                    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+                  </div>
+                  <div class='col-lg-8'>
+                    <%= f.password_field :password, :autocomplete => "off", :class => 'form-control'  %>
+                  </div>
+                </div><br/>
+                <div class='row'>
+                  <div class='col-lg-4'>
+                    <%= f.label :password_confirmation %>
+                  </div>
+                  <div class='col-lg-8'>
+                    <%= f.password_field :password_confirmation, :class => 'form-control'  %></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br/>
+            <div class='row'>
+              <div class='col-lg-12'>
+                <div class="btn-group btn-group-justified">
+                <%= link_to "Обновить данные", "#",:onclick=>"$('form').submit()" ,:class => 'btn btn-primary' %>
+                <%= link_to "Удалить меня", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-danger' %>
+                </div>
+                <%= f.submit :style => 'position: absolute; left: -9999px' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+
+
+
+  </div>
+  <div class='col-lg-3'></div>
+</div>
