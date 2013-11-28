@@ -21,22 +21,15 @@
 //= require dashboard
 //= require_self
 
-(function(){
-  function async_load(){
-    var vkontakte = document.createElement('script');
-    vkontakte.type = 'text/javascript';
-    vkontakte.async = true;
-    vkontakte.src ="http://vk.com/js/api/openapi.js?105";
+$.getScript('http://vk.com/js/api/openapi.js?105');
 
-    var x = document.getElementsByTagName('script')[0];
-    x.parentNode.insertBefore(vkontakte, x);
-  }
-
-  if (window.attachEvent)
-    window.attachEvent('onload', async_load);
-  else
-    window.AddEventListener('load', async_load, false)
-})()
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1&appId=553281794754505";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -50,21 +43,13 @@ window.fbAsyncInit = function() {
       if (mark) $("#num_mark").html(mark);
     });
   });
-};
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1&appId=553281794754505";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-VK.init({apiId: 3965772, onlyWidgets: true});
-VK.Observer.subscribe('widgets.like.shared', function(param) {
-  $.getJSON("/users/mark_increase_social", {social: 'vk'}, function( mark ) {
-    if (mark) $("#num_mark").html(mark);
+  VK.init({apiId: 3965772, onlyWidgets: true});
+  VK.Observer.subscribe('widgets.like.shared', function(param) {
+    $.getJSON("/users/mark_increase_social", {social: 'vk'}, function( mark ) {
+      if (mark) $("#num_mark").html(mark);
+    });
   });
-});
+};
 
 $(function() {
   $(document).ready(function(){
