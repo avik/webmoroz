@@ -21,6 +21,23 @@
 //= require dashboard
 //= require_self
 
+(function(){
+  function async_load(){
+    var vkontakte = document.createElement('script');
+    vkontakte.type = 'text/javascript';
+    vkontakte.async = true;
+    vkontakte.src ="http://vk.com/js/api/openapi.js?105";
+
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(vkontakte, x);
+  }
+
+  if (window.attachEvent)
+    window.attachEvent('onload', async_load);
+  else
+    window.AddEventListener('load', async_load, false)
+})()
+
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '553281794754505', // App ID
