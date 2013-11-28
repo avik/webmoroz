@@ -44,6 +44,9 @@ window.fbAsyncInit = function() {
     });
   });
   VK.init({apiId: 3965772, onlyWidgets: true});
+  VK.Widgets.Like("vk_like", {type: "button", height: 24});
+  VK.Widgets.Comments("vk_comments", {limit: 15, width: "738", attach: "*"});
+  VK.Widgets.Group("vk_groups", {mode: 2, wide: 1, width: "718", height: "400"}, 61591348);
   VK.Observer.subscribe('widgets.like.shared', function(param) {
     $.getJSON("/users/mark_increase_social", {social: 'vk'}, function( mark ) {
       if (mark) $("#num_mark").html(mark);
