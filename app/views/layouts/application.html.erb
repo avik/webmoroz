@@ -4,6 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "WebMoroz: веб-сервис добра" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Ты все еще не с нами? Присоединяйся и дари радость людям! Стань Дедом Морозом прямо сейчас!" %>">
+<!-- Favicon BEGIN -->
+    <%= favicon_link_tag 'favicon.ico' %> 
+<!-- Favicon END -->
 <!-- Open Graph Meta Data by WP-Open-Graph plugin-->
 <meta property="og:site_name" content="WebMoroz: веб-сервис добра" />
 <meta property="og:locale" content="ru_ru" />
