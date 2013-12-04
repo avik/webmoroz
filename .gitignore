@@ -19,5 +19,7 @@
 /tmp
 
 # Ignore deploy files
+/releases
+/current
 /public
 /shared
