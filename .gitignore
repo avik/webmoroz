@@ -19,4 +19,5 @@
 /tmp
 
 # Ignore deploy files
+/public
 /shared
