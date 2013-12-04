@@ -39,6 +39,13 @@ ru:
         zipcode: "Индекс"
         address: "Адрес"
         bdate: "День рождения"
+        password: "Пароль"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              too_short: "слишком короткий"
   helpers:
     submit:
       user:
