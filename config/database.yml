@@ -17,13 +17,3 @@ test:
   database: db/test.sqlite3
   pool: 5
   timeout: 5000
-
-production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: webmoroz
-  pool: 5
-  username: webmoroz
-  password: HzzQJy35js9DmsKS
-  host: localhost
