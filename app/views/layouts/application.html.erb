@@ -2,18 +2,18 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "WebMoroz: веб-сервис добра" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Ты все еще не с нами? Присоединяйся и дари радость людям! Стань Дедом Морозом прямо сейчас!" %>">
+    <title><%= content_for?(:title) ? yield(:title) : t('views.site_name') %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : t('views.site_description') %>">
 <!-- Favicon BEGIN -->
     <%= favicon_link_tag 'favicon.ico' %> 
 <!-- Favicon END -->
 <!-- Open Graph Meta Data by WP-Open-Graph plugin-->
-<meta property="og:site_name" content="WebMoroz: веб-сервис добра" />
+<meta property="og:site_name" content="<%= t('views.site_name') %>" />
 <meta property="og:locale" content="ru_ru" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="WebMoroz: веб-сервис добра" />
+<meta property="og:title" content="<%= t('views.site_name') %>"/>
 <meta property="og:url" content="http://WebMoroz.com/" />
-<meta property="og:description" content="Ты все еще не с нами? Присоединяйся и дари радость людям! Стань Дедом Морозом прямо сейчас!" />
+<meta property="og:description" content="<%= t('views.site_description')%>" />
 <meta property="og:image" content="http://webmoroz.com/assets/ded_moroz.jpg" />
 <!-- /Open Graph Meta Data -->
 

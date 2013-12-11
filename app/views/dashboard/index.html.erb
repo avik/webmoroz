@@ -6,8 +6,8 @@
 <div class='row'>
   <div class='col-lg-1'></div>
   <div class='col-lg-10' id='tour_welcome'>
-    <h2 class='txt-white'>WebMoroz: веб-сервис Добра</h2>
-    <h5 class='txt-white'>Добро пожаловать, <%= current_user.username %></h5>
+    <h2 class='txt-white'><%= t('views.site_name') %></h2>
+    <h5 class='txt-white'><%= t('views.dashboard.welcome') + current_user.username %></h5>
   </div>
   <div class='col-lg-1'></div>
 </div>
@@ -16,8 +16,8 @@
   <div class='col-lg-10'>
     <div class='col-lg-5'>
       <div class='panel panel-primary' id='addresses_for_rec'>
-        <div class='panel-heading tooltip-hover' title='Люди, которые отправили вам подарки'>
-          <h3 class='panel-title'>Подарки отправленные Вам:</h3>
+        <div class='panel-heading tooltip-hover' title='<%= t('views.dashboard.senders.desc')%>'>
+          <h3 class='panel-title'><%= t('views.dashboard.senders.title') %></h3>
         </div>
         <div class='panel-body'>
           <div class='list-group'>
@@ -25,12 +25,12 @@
               <div class='list-group-item'>
                 <h4 class='list-group-item-heading'><%= present.sender.username %></h4>
                 <div class='list-group-item-text'>
-                    <small>Отправлен: <%= l(present.recipient.created_at, :format => :notime) %></small>
+                    <small><%= t('views.dashboard.senders.send') + l(present.recipient.created_at, :format => :notime) %></small>
                     <div style='text-align: right'>
-                      <div class='tooltip-hover' style='display: inline-block; max-width: 100px;' title='Отблагодарите вашего ВебМороза, указав код, написаный на вашем подарке'>
+                      <div class='tooltip-hover' style='display: inline-block; max-width: 100px;' title=<%= t('views.dashboard.senders.code.desc')%>>
                         <%= form_tag(close_present_path(present), method: "get") do %>
                           <div class='input-group'>
-                            <%= text_field_tag :code, '', :class => 'form-control input-sm', :placeholder => 'Код' %>
+                            <%= text_field_tag :code, '', :class => 'form-control input-sm', :placeholder => t('views.dashboard.senders.code.title') %>
                             <span class='input-group-btn'>
                               <%= submit_tag "+", :class => 'btn btn-primary btn-sm' %>
                             </span>
@@ -47,10 +47,10 @@
     </div>
     <div class='col-lg-2' style='text-align: center'>
       <span class='margin-bottom' style='display: inline-block'>
-        <%= link_to '', new_present_path,:remote => false, :class => 'btn btn-lg btn-success fa fa-envelope-o fa-4x tooltip-hover', :id => 'gift-btn', :title => 'Нажав, Вы получите адрес человека, которому должны отправить подарок'%>
+        <%= link_to '', new_present_path,:remote => false, :class => 'btn btn-lg btn-success fa fa-envelope-o fa-4x tooltip-hover', :id => 'gift-btn', :title => t('views.dashboard.big_btn.desc')%>
       </span>
       <div class="panel panel-default">
-        <div class="panel-body tooltip-hover" id='tour_mark'  title='Количество подарков, которые вы еще можете получить.' >
+        <div class="panel-body tooltip-hover" id='tour_mark'  title='<%= t('views.dashboard.big_btn.marks')%>' >
           <span class='font-lg' id='num_mark'><%= current_user.mark %></span>
           <span class='font-lg'> x </span>
           <span class='fa fa-gift fa-3x'></span>
@@ -59,8 +59,8 @@
     </div>
     <div class='col-lg-5'>
       <div class='panel panel-primary' id='addresses_for_send'>
-        <div class='panel-heading tooltip-hover' title='Люди, которые ждут от вас подарки'>
-          <h3 class='panel-title'>Адресаты для Ваших подарков:</h3>
+        <div class='panel-heading tooltip-hover' title='<%= t('views.dashboard.recepients.desc') %>'>
+          <h3 class='panel-title'><%= t('views.dashboard.recepients.title')%></h3>
         </div>
         <div class='panel-body'>
           <div class='list-group'>
@@ -71,12 +71,12 @@
                 </h4>
                 <div class='list-group-item-text'>
                   <small>
-                    <span class='text-info'>Возраст:</span> <%= present.recipient.age %><br/>
-                    <span class='text-info'>Адрес:</span> <%= present.recipient.zipcode %>, <%= present.recipient.address %>
+                    <span class='text-info'><%= t('views.dashboard.recepients.age')%></span> <%= present.recipient.age %><br/>
+                    <span class='text-info'><%= t('views.dashboard.recepients.address')%>:</span> <%= present.recipient.zipcode %>, <%= present.recipient.address %>
                   </small>
                   <div style='text-align: right'>
-                    <span class='tooltip-hover' title="Укажите этот код на подарке">
-                      <span class="label label-primary">Код:</span><span class="label label-success"><%= present.code%></span>
+                    <span class='tooltip-hover' title='<%= t('views.dashboard.recepients.code.desc')%>'>
+                      <span class="label label-primary"><%= t('views.dashboard.recepients.code.title')%></span><span class="label label-success"><%= present.code%></span>
                     </span>
                   </div>
                 </div>

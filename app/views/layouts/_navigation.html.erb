@@ -7,22 +7,22 @@
     <% if user_signed_in? %>
       <% if user_admin %>
         <li>
-        <%= link_to('Admin', admin_index_path) %>
+        <%= link_to(t('views.nav.admin'), admin_index_path) %>
         </li>
       <% end %>
       <li>
-        <%= link_to('С чего начать?', '#', :id => 'start-tour') %>
+        <%= link_to(t('views.nav.start_tour'), '#', :id => 'start-tour') %>
       </li>
       <li>
-      <%= link_to('Настройки', edit_user_registration_path) %>
+      <%= link_to(t('views.nav.settings'), edit_user_registration_path) %>
       </li>
     <% end %>
     <li>
-      <%= link_to('Помочь проекту', '/help') %>
+      <%= link_to(t('views.nav.donate'), '/help') %>
     </li>
     <% if user_signed_in? %>
       <li>
-      <%= link_to('Выйти', destroy_user_session_path, :method=>'delete') %>
+      <%= link_to(t('views.nav.logout'), destroy_user_session_path, :method=>'delete') %>
       </li>
     <% end %>
   </ul>

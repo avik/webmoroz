@@ -4,28 +4,28 @@
     <div class='panel panel-default'>
       <div class='panel-body'>
         <div class='col-lg-7'>
-          <h3>Стань Дедом Морозом сейчас!</h3>
+          <h3><%= t('views.welcome.title')%></h3>
             <%= render 'layouts/carousel' %>
         </div>
         <div class='col-lg-5'>
-          <h5>Войдите с помощью:</h5>
+          <h5><%= t('views.welcome.form.login_with') %></h5>
           <%=link_to image_tag("vk.png", :border => 0), user_omniauth_authorize_path(:vkontakte), :class => 'vk-login'%>
           <%=link_to image_tag("fb.png", :border => 0), user_omniauth_authorize_path(:facebook), :class => 'vk-login'%>
           <div class='hidden'><%=link_to image_tag("fb.png", :border => 0), user_omniauth_authorize_path(:vkontakte), :class => 'vk-login'%></div>
-          <h5>Или воспользуйтесь формой:</h5>
+          <h5><%= t('views.welcome.form.or_form') %></h5>
           <%= form_for("user", :url => user_session_path, :html => {:class => 'well'}) do |f| %>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-              <%= f.email_field :email, :class => 'form-control', :placeholder => 'E-Mail' %><br/>
+              <%= f.email_field :email, :class => 'form-control', :placeholder => t('views.welcome.form.email') %><br/>
             </div>
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-              <%= f.password_field :password, :class => 'form-control', :placeholder => 'Пароль' %><br/>
+              <%= f.password_field :password, :class => 'form-control', :placeholder => t('views.welcome.form.password') %><br/>
             </div>
-            <%= f.check_box :remember_me %> <%= f.label 'Запомнить меня' %>
+            <%= f.check_box :remember_me %> <%= f.label t('views.welcome.form.remember_me') %>
             <div class="btn-group btn-group-justified">
-              <%= link_to "Войти", "#",:onclick=>"$('form').submit()" ,:class => 'btn btn-primary' %>
-              <%=link_to 'Регистрация', new_user_registration_path, :class => 'btn btn-success btn-sm' %>
+              <%= link_to t('views.welcome.form.login'), "#",:onclick=>"$('form').submit()" ,:class => 'btn btn-primary' %>
+              <%=link_to t('views.welcome.form.register'), new_user_registration_path, :class => 'btn btn-success btn-sm' %>
             </div>
             <%= f.submit :style => 'position: absolute; left: -9999px' %>
           <% end %>
