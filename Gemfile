@@ -45,8 +45,9 @@ gem 'unicorn'
 #
 
 group :development do
-  gem "capistrano"
-  gem "rvm-capistrano"
+  gem 'capistrano'
+  gem 'rvm-capistrano'
+  gem 'rspec-rails'
 end
 
 gem 'yui-compressor'
