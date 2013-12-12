@@ -45,6 +45,7 @@ gem 'unicorn'
 #
 
 group :development do
+  gem 'debugger'
   gem 'capistrano'
   gem 'rvm-capistrano'
   gem 'rspec-rails'

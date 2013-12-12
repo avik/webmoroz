@@ -70,6 +70,9 @@ $(function() {
       e.preventDefault();
       $(this).tab('show');
     })
+    $('#show_btn').click(function(){
+      $('#show').slideToggle();
+    }) 
   })
 });
 

@@ -1,4 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_filter :update_sanitized_params, if: :devise_controller?
+
   def update
     @user = User.find(current_user.id)
 
@@ -22,6 +24,10 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   private
+
+  def update_sanitized_params
+     devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:username, :email,   :password, :password_confirmation, :zipcode, :address, :bdate)}
+  end
 
   # check if we need password to update user data
   # ie if password or email was changed

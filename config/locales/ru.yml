@@ -41,12 +41,20 @@ ru:
         bdate: "День рождения"
         password: "Пароль"
         password_confirmation: "Повторите пароль"
+        current_password: "Текущий пароль"
     errors:
       models:
         user:
           attributes:
+            email:
+              blank: "не может быть пустым"
             password:
               too_short: "слишком короткий"
+              blank: "не может быть пустым"
+            current_password:
+              invalid: "введен не правильно"
+            password_confirmation:
+              confirmation: ". Возможно вы ошиблись при повторном наборе."
   helpers:
     submit:
       user:
@@ -109,6 +117,7 @@ ru:
         register: "Регистрация пользователя"
       edit:
         title: "Настройка пользователя"
+        imp_panel: "Параметры, требующие ввода текущего пароля"
         field:
           username:
             desc: "на почте без них подарок вполне могут и не отдать"
@@ -120,13 +129,19 @@ ru:
             desc: "не e-mail адрес, а настоящий адрес - улица-дом, все дела"
             example: "Город, улица, дом, корпус, квартира, все дела.."
           bdate:
-            desc: "иногда так случается, что вашему ВебМорозу необходимо знать ваш возраст ;)"
+            desc: "иногда вашему ВебМорозу необходимо знать ваш возраст ;)"
             example: "Нажмите и выберете дату в выпадающем списке"
           email:
-            desc: "Укажите адрес электронной почты, для получения уведомлений"
+            desc: ""
             example: "mail@example.com"
+          current_password:
+            desc: ""
+            example: ""
           password:
-            desc: "Оставьте поле пустым, если не хотите менять пароль"
+            desc: "минимальная длина пароля 6 знаков"
+            example: ""
+          password_confirmation:
+            desc: ""
             example: ""
         refresh: "Обновить данные"
         destroy: "Удалить меня"

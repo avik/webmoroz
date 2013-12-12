@@ -1,0 +1,67 @@
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <% hidden = 'hidden' if (@user.provider == "vkontakte" or @user.provider == "facebook") %>
+  <div class='row'>
+    <div class='col-lg-4'>
+      <%= f.label :username %>
+    </div>
+    <div class='col-lg-8'>
+      <%= f.text_field :username, :validate => true, :class => 'form-control', :placeholder => t('views.users.edit.field.username.example') %>
+      <p><small><i><%= t('views.users.edit.field.username.desc')%></i></small></p>
+    </div>
+  </div><br/>
+  <div class='row'>
+    <div class='col-lg-4'>
+      <div><%= f.label :zipcode %></div>
+    </div>
+    <div class='col-lg-8'>
+      <%= f.text_field :zipcode, :validate => true, :class => 'form-control', :placeholder => t('views.users.edit.field.zipcode.example') %>
+      <p><small><i><%= t('views.users.edit.field.zipcode.desc')%></i></small></p>
+    </div>
+  </div><br/>
+  <div class='row'>
+    <div class='col-lg-4'>
+      <%= f.label :address %>
+    </div>
+    <div class='col-lg-8'>
+      <%= f.text_field :address, :validate => true, :class => 'form-control', :placeholder => t('views.users.edit.field.address.example') %>
+      <p><small><i><%= t('views.users.edit.field.address.desc')%></i></small></p>
+    </div>
+  </div><br/>
+  <div class='row'>
+    <div class='col-lg-4'>
+      <%= f.label :bdate %>
+    </div>
+    <div class='col-lg-8'>
+      <%= f.text_field :bdate, 'data-behaviour' => 'datepicker', :class => 'form-control', :placeholder => t('views.users.edit.field.bdate.example') %>
+      <p><small><i><%= t('views.users.edit.field.bdate.desc')%></i></small></p>
+    </div>
+  </div><br/>
+  <div class='row'>
+    <div class='col-lg-4'>
+      <%= f.label :email %>
+    </div>
+    <div class='col-lg-8'>
+      <%= f.email_field :email, :class => 'form-control', :placeholder => t('views.users.edit.field.email.example') %>
+      <p><small><i><%= t('views.users.edit.field.email.desc')%></i></small></p>
+    </div>
+  </div><br/>
+  <div class='row'>
+    <div class='col-lg-4'>
+      <%= f.label :password %>
+    </div>
+    <div class='col-lg-8'>
+      <%= f.password_field :password, :autocomplete => "off", :class => 'form-control'  %>
+      <p><small><i><%= t('views.users.edit.field.password.desc')%></i></small></p>
+    </div>
+  </div><br/>
+  <div class='row'>
+    <div class='col-lg-4'>
+      <%= f.label :password_confirmation %>
+    </div>
+    <div class='col-lg-8'>
+      <%= f.password_field :password_confirmation, :class => 'form-control'  %>
+      <p><small><i><%= t('views.users.edit.field.password_confirmation.desc')%></i></small></p>
+    </div>
+  </div></br>
+  <%= f.submit :style => 'position: absolute; left: -9999px' %>
+<% end %>
