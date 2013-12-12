@@ -27,7 +27,7 @@
                 <div class='list-group-item-text'>
                     <small><%= t('views.dashboard.senders.send') + l(present.recipient.created_at, :format => :notime) %></small>
                     <div style='text-align: right'>
-                      <div class='tooltip-hover' style='display: inline-block; max-width: 100px;' title=<%= t('views.dashboard.senders.code.desc')%>>
+                      <div class='tooltip-hover' style='display: inline-block; max-width: 100px;' title='<%= t('views.dashboard.senders.code.desc')%>'>
                         <%= form_tag(close_present_path(present), method: "get") do %>
                           <div class='input-group'>
                             <%= text_field_tag :code, '', :class => 'form-control input-sm', :placeholder => t('views.dashboard.senders.code.title') %>
