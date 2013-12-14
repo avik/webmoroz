@@ -1,4 +1,3 @@
-# coding: utf-8
 class DashboardController < ApplicationController
   before_filter :validate_user
   def index
@@ -10,12 +9,12 @@ class DashboardController < ApplicationController
   private
 
   def validate_user
-    if current_user.username.blank? or current_user.zipcode.blank? or current_user.address.blank?
+    if current_user.username.blank? or current_user.email.blank? or current_user.zipcode.blank? or current_user.address.blank?
       current_user.update_attribute :activ, false
       unless current_user.admin
         respond_to do |format|
           format.html {
-            flash[:error] = "Пожалуйста, заполните ФИО, Индекс и Почтовый адрес"
+            flash[:error] = t('views.dashboard.activate_err') 
             return redirect_to edit_user_registration_path
           }
         end

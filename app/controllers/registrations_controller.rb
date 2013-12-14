@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_filter :update_sanitized_params, if: :devise_controller?
+  before_filter :configure_permitted_params, if: :devise_controller?
 
   def update
     @user = User.find(current_user.id)
@@ -25,15 +25,17 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def update_sanitized_params
-     devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:username, :email,   :password, :password_confirmation, :zipcode, :address, :bdate)}
+  def configure_permitted_params
+    devise_parameter_sanitizer.for(:sign_up) do |u| 
+      u.permit(:username, :email, :password, :password_confirmation, :zipcode, :address, :bdate)
+    end
   end
 
   # check if we need password to update user data
   # ie if password or email was changed
   # extend this as needed
   def needs_password?(user, params)
-    user.email != params[:user][:email] ||
-      params[:user][:password].present?
+    params[:user][:password].present?
   end
+  
 end

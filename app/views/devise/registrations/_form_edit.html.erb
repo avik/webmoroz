@@ -2,6 +2,15 @@
   <% hidden = 'hidden' if (@user.provider == "vkontakte" or @user.provider == "facebook") %>
   <div class='row'>
     <div class='col-lg-4'>
+      <%= f.label :email %>
+    </div>
+    <div class='col-lg-8'>
+      <%= f.email_field :email, :class => 'form-control', :placeholder => t('views.users.edit.field.email.example') %>
+      <p><small><i><%= t('views.users.edit.field.email.desc')%></i></small></p>
+    </div>
+  </div><br/>
+  <div class='row'>
+    <div class='col-lg-4'>
       <%= f.label :username %>
     </div>
     <div class='col-lg-8'>
@@ -45,15 +54,6 @@
           </div>
         </div>
         <div id='show' class='panel-body collapse'>
-            <div class='row'>
-              <div class='col-lg-4'>
-                <%= f.label :email %>
-              </div>
-              <div class='col-lg-8'>
-                <%= f.email_field :email, :class => 'form-control', :placeholder => t('views.users.edit.field.email.example') %>
-                <p><small><i><%= t('views.users.edit.field.email.desc')%></i></small></p>
-              </div>
-            </div><br/>
             <div class='row'>
               <div class='col-lg-4'>
                 <%= f.label :current_password %>

@@ -1,4 +1,3 @@
-# coding: utf-8
 class PresentsController < ApplicationController
   around_filter :catch_not_found
   def new
@@ -8,7 +7,7 @@ class PresentsController < ApplicationController
     if (num_of_send > 2)
       respond_to do |format|
         format.html {
-          flash[:warning] = "Вы не можете добавить больше трех подарков. Дождитесь доставки"
+          flash[:warning] = t('views.present.max_presents')
           return redirect_to :back
         }
         format.json { render action: 'show', status: :created, location: @user }
@@ -20,7 +19,7 @@ class PresentsController < ApplicationController
     Present.create(:code => code, :sender_id => current_user.id, :recipient_id => recipient.id)
     respond_to do |format|
       format.html {
-        flash[:success] = "Подарок успешно добавлен"
+        flash[:success] = t('views.present.success')
         return redirect_to :back
       }
       format.json { render action: 'show', status: :created, location: @user }
@@ -31,7 +30,7 @@ class PresentsController < ApplicationController
     if (@present[:code].to_s != params[:code].to_s)
       respond_to do |format|
         format.html {
-          flash[:error] = "Код введен неправильно"
+          flash[:error] = t('views.present.code_error')
           return redirect_to :back
         }
         format.json { render action: 'show', status: :created, location: @user }
@@ -56,7 +55,7 @@ private
     rescue ActiveRecord::RecordNotFound
     respond_to do |format|
       format.html {
-        flash[:error] = "Нет свободных адресатов"
+        flash[:error] = t('views.present.recepients_error')
         redirect_to root_url
       }
       format.json { render action: 'show', status: :created, location: @user }
