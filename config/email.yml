@@ -1,6 +1,6 @@
 development:
-  :address: 'mail.itcons.pro'
+  :address: 'webmoroz.com'
   :port: 25
 production:
-  :address: 'mail.itcons.pro'
+  :address: 'localhost'
   :port: 25
