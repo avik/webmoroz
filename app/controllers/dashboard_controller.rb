@@ -22,6 +22,7 @@ class DashboardController < ApplicationController
     else
       unless current_user.activ
         cookies[:first_time] = 1
+        UserMailer.welcome_email(current_user.id).deliver
       end
       current_user.update_attribute :activ, true
     end
