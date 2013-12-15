@@ -1,0 +1,6 @@
+development:
+  :address: 'mail.itcons.pro'
+  :port: 25
+production:
+  :address: 'mail.itcons.pro'
+  :port: 25

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Добро пожаловать на webmoroz.com, <%= @user.username %></h1>
+    <p>
+      Вы успешно зарегистрировались на сайте webmoroz.com 
+    </p>
+    <p>
+      Ваше имя: <%= @user.username %>.<br/>
+      Ваш адрес: <%= @user.zipcode%>, <%= @user.address %>.<br/>
+      Ваш возраст: <%= @user.age %>.<br/>
+    </p>
+    <p>Если ваши данные не верны, то исправьте их webmoroz.com/users/edit</p>
+    <p>Спасибо за регистрацию и отличного настроения!</p>
+  </body>
+</html>
