@@ -49,13 +49,13 @@ group :development do
   gem 'capistrano'
   gem 'rvm-capistrano'
   gem 'rspec-rails'
+  gem 'webrick'
 end
 
 gem 'yui-compressor'
 
 gem 'bootstrap-tour-rails'
 gem 'font-awesome-sass'
-gem 'thin'
 gem 'twitter-bootswatch-rails'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'therubyracer'

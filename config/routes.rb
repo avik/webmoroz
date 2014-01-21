@@ -3,7 +3,7 @@ Webmoroz::Application.routes.draw do
   get "dashboard/index"
   get "dashboard/get_started"
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations", :passwords => "passwords" }
   resources :users, :only => [:destroy, :edit]
   get "admin/create_mass_users"
   resources :admin, :only => [:index, :users, :presents]

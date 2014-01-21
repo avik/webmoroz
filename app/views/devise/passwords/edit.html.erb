@@ -1,16 +1,25 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
-
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class='col-lg-4'></div>
+<div class='col-lg-4'>
+  <div class='panel panel-default'>
+    <div class='panel-body'>
+      <h3>Измените Ваш пароль</h3>
+      <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :reset_password_token %>
+        <div class="input-group margin-bottom-sm">
+          <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+          <%= f.password_field :password, :class => 'form-control', :autofocus => true, :placeholder => t('views.welcome.form.password') %><br/>
+        </div>
+        <div class="input-group margin-bottom-sm">
+          <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+          <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => t('views.welcome.form.password_confirmation') %><br/>
+        </div>
+        <div class="btn-group btn-group-justified">
+          <%= link_to t('views.welcome.form.change'), "#",:onclick=>"$('form').submit()" ,:class => 'btn btn-primary' %>
+        </div>
+        <%= f.submit :style => 'position: absolute; left: -9999px' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class='col-lg-4'></div>

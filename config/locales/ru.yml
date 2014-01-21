@@ -95,8 +95,11 @@ ru:
         or_form: "Или воспользуйтесь формой:"
         email: "E-mail"
         password: "Пароль"
+        password_confirmation: "Повторите пароль"
         remember_me: "Запомнить меня"
+        recovery: "Забыли пароль?"
         login: "Войти"
+        change: "Изменить пароль"
         register: "Регистрация"
     dashboard:
       welcome: "Добро пожаловать, "
