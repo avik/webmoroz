@@ -16,7 +16,7 @@
           <%= form_for("user", :url => user_session_path, :html => {:class => 'well'}) do |f| %>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-              <%= f.email_field :email, :class => 'form-control', :placeholder => t('views.welcome.form.email') %><br/>
+              <%= f.email_field :email, :class => 'form-control', :autofocus => true, :placeholder => t('views.welcome.form.email') %><br/>
             </div>
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
@@ -25,19 +25,19 @@
             <%= f.check_box :remember_me %> <%= f.label t('views.welcome.form.remember_me') %>
             <div class="btn-group btn-group-justified margin-bottom-sm">
               <%= link_to t('views.welcome.form.login'), "#",:onclick=>"$('form').submit()" ,:class => 'btn btn-primary' %>
-              <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">Забыли пароль?</a>
+              <%= link_to t('views.welcome.form.recovery'), "#", :class => 'btn btn-success btn-sm', :data => {:toggle => "modal", :target => "#modal_recovery"} %>
             </div>
             <div class="btn-group btn-group-justified">
               <%= link_to t('views.welcome.form.register'), new_user_registration_path, :class => 'btn btn-warning btn-sm' %>
             </div>
             <%= f.submit :style => 'position: absolute; left: -9999px' %>
           <% end %>
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal fade" id="modal_recovery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title">Забыли пароль?</h4>
+                  <h4 class="modal-title"><%= t('views.welcome.form.recovery')%></h4>
                 </div>
                 <div class="modal-body">
                   <%= render :template => 'devise/passwords/new' %>
