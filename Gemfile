@@ -28,6 +28,7 @@ group :development, :test do
   gem 'debugger'
   gem 'rvm-capistrano'
   gem 'rspec-rails'
+  gem 'capybara'
 end
 group :production do
   gem 'mysql2'
