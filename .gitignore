@@ -24,3 +24,7 @@
 /public
 /shared
 /nbproject/private/
+
+# Ignore tests
+test
+.DS_Store
