@@ -75,8 +75,11 @@ $(function() {
     $('#show_btn').click(function(){
       $('#show').slideToggle();
     }) 
-    $('#presents').dataTable({
-      "sPaginationType": "bootstrap"
+    $('#users-table').dataTable({
+      "sPaginationType": "bootstrap",
+    });
+    $('#presents-table').dataTable({
+      "sPaginationType": "bootstrap",
     });
   })
 });
