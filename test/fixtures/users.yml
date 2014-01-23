@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  username: MyString
-  nickname: MyString
-  provider: MyString
-  url: MyString
+  username: username
+  nickname: nickname
+  provider: provider
+  email: mail_one@email.com
 
 two:
-  username: MyString
-  nickname: MyString
-  provider: MyString
-  url: MyString
+  username: username
+  nickname: nickname
+  provider: provider
+  email: mail_two@email.com

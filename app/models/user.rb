@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  validates :email, :email => true
   before_destroy :delete_presents
 #  belongs_to :presents, dependent: :destroy, :foreign_key => 'sender_id'
 #  has_many :presents, dependent: :destroy, :foreign_key => 'sender_id'

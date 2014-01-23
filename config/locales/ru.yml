@@ -48,6 +48,7 @@ ru:
           attributes:
             email:
               blank: "не может быть пустым"
+              invalid: "ошибка валидации"
               taken: "уже зарегистрирован в системе"
             password:
               too_short: "слишком короткий"
