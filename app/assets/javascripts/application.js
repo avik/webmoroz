@@ -17,6 +17,8 @@
 //= require bootstrap
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.ru.js
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.bootstrap
 // require_tree .
 //= require dashboard
 //= require_self
@@ -73,6 +75,9 @@ $(function() {
     $('#show_btn').click(function(){
       $('#show').slideToggle();
     }) 
+    $('#presents').dataTable({
+      "sPaginationType": "bootstrap"
+    });
   })
 });
 

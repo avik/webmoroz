@@ -16,6 +16,8 @@
  * require twitter-bootstrap-static/fontawesome
  * require bootstrap_and_overrides
  * =require bootstrap
+ * =require dataTables/jquery.dataTables
+ * =require dataTables/jquery.dataTables.bootstrap
  * =require font-awesome
  * =require carousel
  * =require overrides
