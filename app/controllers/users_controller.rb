@@ -60,7 +60,10 @@ class UsersController < ApplicationController
       when 'fb' then current_user.FBLiked ^= true
       else false
     end
-    current_user.save if liked
+    if liked
+      current_user.mark += 1
+      current_user.save
+    end
     respond_to do |format|
       format.html { redirect_to :back }
       format.json { render :json => current_user.mark }
