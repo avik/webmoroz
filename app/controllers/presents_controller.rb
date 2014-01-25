@@ -1,5 +1,7 @@
 class PresentsController < ApplicationController
   around_filter :catch_not_found
+  before_filter :find_present, :only => [:close, :destroy]
+
   def new
     ignored_ids = Present.where("sender_id = ?",current_user.id).pluck(:recipient_id)
     ignored_ids.push(current_user.id)
@@ -22,9 +24,9 @@ class PresentsController < ApplicationController
         flash[:success] = t('views.present.success')
         return redirect_to :back
       }
-      format.json { render action: 'show', status: :created, location: @user }
     end
   end
+
   def close
     @present = Present.find(params[:id])
     if (@present[:code].to_s != params[:code].to_s)
@@ -33,7 +35,6 @@ class PresentsController < ApplicationController
           flash[:error] = t('views.present.code_error')
           return redirect_to :back
         }
-        format.json { render action: 'show', status: :created, location: @user }
       end
     end
     sender = User.find(@present.sender_id)
@@ -43,13 +44,17 @@ class PresentsController < ApplicationController
     @present.save
     redirect_to :back
   end
+
   def destroy
-    @present = Present.find(params[:id])
     @present.destroy
     redirect_to :back
   end
 
 private
+  def find_present
+    @present = Present.find(params[:id])
+  end
+
   def catch_not_found
     yield
     rescue ActiveRecord::RecordNotFound
@@ -58,7 +63,6 @@ private
         flash[:error] = t('views.present.recepients_error')
         redirect_to root_url
       }
-      format.json { render action: 'show', status: :created, location: @user }
     end
   end
 end

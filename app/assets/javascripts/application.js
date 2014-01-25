@@ -11,10 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
+//= require cerulean/loader
+//= require cerulean/bootswatch
 //= require jquery.cookie
 //= require jquery_ujs
 //= require bootstrap-tour
-//= require bootstrap
+// require bootstrap
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.ru.js
 //= require dataTables/jquery.dataTables

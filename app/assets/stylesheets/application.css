@@ -9,13 +9,15 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require cerulean/loader
+ *= require cerulean/bootswatch
  * require_tree .
  *= require bootstrap-tour
  * =require bootstrap-datepicker
  * require twitter-bootstrap-static/bootstrap
  * require twitter-bootstrap-static/fontawesome
  * require bootstrap_and_overrides
- *= require bootstrap
+ * require bootstrap
  *= require jquery.ui.core
  *= require jquery.ui.theme
  *= require dataTables/jquery.dataTables

@@ -242,6 +242,7 @@ DEPENDENCIES
   jquery-datatables-rails!
   jquery-rails
   jquery-ui-rails
+  less-rails
   mysql2
   omniauth
   omniauth-facebook

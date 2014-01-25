@@ -26,7 +26,7 @@ Webmoroz::Application.routes.draw do
     root :to => 'welcome#index'
   end
 
-  get "/:page" => "static#show"
+  get ':page' => 'static#show', :as => 'static'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

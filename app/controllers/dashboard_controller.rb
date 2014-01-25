@@ -9,22 +9,21 @@ class DashboardController < ApplicationController
   private
 
   def validate_user
-    if current_user.username.blank? or current_user.email.blank? or current_user.zipcode.blank? or current_user.address.blank?
-      current_user.update_attribute :activ, false
-      unless current_user.admin
-        respond_to do |format|
-          format.html {
-            flash[:error] = t('views.dashboard.activate_err') 
-            return redirect_to edit_user_registration_path
-          }
-        end
+    msg = Array.new
+    msg.push(t('views.dashboard.errors.username')) if current_user.username.blank?
+    msg.push(t('views.dashboard.errors.zipcode')) if current_user.zipcode.blank?
+    msg.push(t('views.dashboard.errors.address')) if current_user.address.blank?
+    msg.push(t('views.dashboard.errors.bdate')) if current_user.bdate.blank?
+    if msg.empty? 
+      unless current_user.activ
+        cookies[:first_time] = 1 
+        UserMailer.welcome_email(current_user.id).deliver
+        current_user.update_attribute :activ, true
       end
     else
-      unless current_user.activ
-        cookies[:first_time] = 1
-        UserMailer.welcome_email(current_user.id).deliver
-      end
-      current_user.update_attribute :activ, true
+      current_user.update_attribute :activ, false
+      flash[:error] = msg
+      redirect_to edit_user_registration_path
     end
   end
 end
