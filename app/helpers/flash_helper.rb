@@ -3,7 +3,6 @@ module FlashHelper
   def bootswatch_flash(alert_dismissable=true)
     alert_dismissable_class = alert_dismissable ? ' alert-dismissable' : ''
     flash_messages = ''
-    puts flash.to_yaml
     flash.each do |type, message|
       alert_type_class = bootswatch_alert_types(type)
       if message.is_a?(Array)
