@@ -23,6 +23,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-vkontakte'
 gem 'omniauth-facebook'
+
 group :development, :test do
   gem 'webrick'
   gem 'capistrano'
