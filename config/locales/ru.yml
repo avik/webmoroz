@@ -27,6 +27,41 @@ ru:
     formats:
       default: "%d.%m.%Y %H:%M:%S"
       notime:  "%d.%m.%Y"
+    distance_in_words:
+      about_x_hours:
+        one: около часа
+        other: около %{count} часов
+      about_x_months:
+        one: около месяца
+        other: около %{count} месяцев
+      about_x_years:
+        one: около года
+        other: около %{count} лет
+      almost_x_years:
+        one: около года
+        other: около %{count} лет
+      half_a_minute: полминуты
+      less_than_x_minutes:
+        one: менее минуты
+        other: менее чем %{count} минут
+      less_than_x_seconds:
+        one: менее секунды
+        other: менее %{count} секунд
+      over_x_years:
+        one: более года
+        other: более %{count} лет
+      x_days:
+        one: 1 день
+        other: ! '%{count} дней'
+      x_minutes:
+        one: 1 минута
+        other: ! '%{count} минут'
+      x_months:
+        one: 1 месяц
+        other: ! '%{count} месяцев'
+      x_seconds:
+        one: 1 секунда
+        other: ! '%{count} секунд'
   time:
     formats:
       notime: "%d.%m.%Y"
@@ -104,7 +139,7 @@ ru:
         register: "Регистрация"
     dashboard:
       welcome: "Добро пожаловать, "
-      errors: 
+      errors:
         username: "Пожалуйста, заполните ФИО"
         zipcode: "Пожалуйста, заполните Индекс "
         address: "Пожалуйста, заполните Адрес"
@@ -113,11 +148,12 @@ ru:
         title: "Подарки отправленные Вам:"
         desc: "Люди, которые отправили вам подарки"
         send: "Отправлен: "
+        back: " назад"
         code:
           title: "Код"
-          desc: "Отблагодарите вашего ВебМороза, указав код, написаный на вашем подарке" 
+          desc: "Отблагодарите вашего ВебМороза, указав код, написаный на вашем подарке"
       big_btn:
-        desc: "Нажав, Вы получите адрес человека, которому должны отправить подарок" 
+        desc: "Нажав, Вы получите адрес человека, которому должны отправить подарок"
         marks: "Количество подарков, которые вы еще можете получить."
       recepients:
         title: "Адресаты для Ваших подарков:"
@@ -126,7 +162,7 @@ ru:
         address: "Адрес:"
         code:
           title: "Код"
-          desc: "Укажите этот код на подарке" 
+          desc: "Укажите этот код на подарке"
     users:
       new:
         title: "Регистрация пользователя"

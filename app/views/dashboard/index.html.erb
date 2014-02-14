@@ -25,7 +25,7 @@
               <div class='list-group-item'>
                 <h4 class='list-group-item-heading'><%= present.sender.username.mb_chars.titleize %></h4>
                 <div class='list-group-item-text'>
-                    <small><%= t('views.dashboard.senders.send') + l(present.created_at, :format => :notime) %></small>
+                    <small><%= t('views.dashboard.senders.send') + time_ago_in_words(present.created_at) + t('views.dashboard.senders.back')%></small>
                     <div style='text-align: right'>
                       <div class='tooltip-hover' style='display: inline-block; max-width: 100px;' title='<%= t('views.dashboard.senders.code.desc')%>'>
                         <%= form_tag(close_present_path(present), method: "get") do %>
