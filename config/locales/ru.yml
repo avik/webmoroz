@@ -52,16 +52,16 @@ ru:
         other: более %{count} лет
       x_days:
         one: 1 день
-        other: ! '%{count} дней'
+        other: ! 'около %{count} дней'
       x_minutes:
         one: 1 минута
-        other: ! '%{count} минут'
+        other: ! 'около %{count} минут'
       x_months:
         one: 1 месяц
-        other: ! '%{count} месяцев'
+        other: ! 'около %{count} месяцев'
       x_seconds:
         one: 1 секунда
-        other: ! '%{count} секунд'
+        other: ! 'около %{count} секунд'
   time:
     formats:
       notime: "%d.%m.%Y"
