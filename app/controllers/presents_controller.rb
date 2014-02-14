@@ -6,11 +6,11 @@ class PresentsController < ApplicationController
   def new
     @present = Present.new()
     user_id = current_user.id
-    
+
     ignored_ids = Present.where("sender_id = ?",user_id).pluck(:recipient_id)
     ignored_ids.push(user_id)
     recipient = User.where("id NOT IN (?) AND activ = ? AND mark > ?",ignored_ids,true,0).order(:mark).reverse_order.first!
-    #recipient.decrement!(:mark)
+    recipient.decrement!(:mark)
     @present.code = (0...5).map { (65 + rand(26)).chr }.join
     @present.recipient_id = recipient.id
     @present.sender_id = user_id
