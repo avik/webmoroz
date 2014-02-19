@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
-gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -25,6 +24,7 @@ gem 'omniauth-vkontakte'
 gem 'omniauth-facebook'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'webrick'
   gem 'capistrano'
   gem 'debugger'
@@ -34,5 +34,6 @@ group :development, :test do
 end
 group :production do
   gem 'mysql2'
+  gem 'pg'
   gem 'unicorn'
 end
