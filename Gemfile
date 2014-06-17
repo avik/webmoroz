@@ -27,12 +27,12 @@ group :development, :test do
   gem 'sqlite3'
   gem 'webrick'
   gem 'capistrano'
-  gem 'debugger'
   gem 'rvm-capistrano'
   gem 'rspec-rails'
   gem 'capybara'
 end
 group :production do
+  gem 'sqlite3'
   gem 'pg'
   gem 'mysql2'
   gem 'unicorn'
